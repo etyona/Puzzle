@@ -7,7 +7,7 @@ const browserSync = require('browser-sync');
 //ローカルサーバーを起動
 const server = () => browserSync.init({
     server: {
-        baseDir: "app",
+        baseDir: "docs",
         index: "index.html"
     }
 });
@@ -16,7 +16,7 @@ const server = () => browserSync.init({
 const browserReload = () => browserSync.reload();
 
 //jsファイルを監視
-const watchReload = () => watch("app/js/*.js", browserReload);
+const watchReload = () => watch("docs/js/*.js", browserReload);
 
 //自動リロードサーバー
 const watchReloadServer = () => {

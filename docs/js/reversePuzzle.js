@@ -33,7 +33,7 @@ function reversePuzzleReady(){
 
     //ボタン
     button.hub.draw("HUB", 820, 660 );
-    button.reversePuzzlePlay.draw("Reverse", 820,560 );
+    button.reversePuzzlePlay.draw("Start", 820,560 );
     button.numOfBlocks.draw(numOfBlocks+"×"+numOfBlocks, 820, 460);
 
     setReverseBlock();
@@ -86,7 +86,7 @@ function judgeReverseBlock(){
 
 //ブロックを黒にする
 function reverseBlockBlack(){
-    for(let i=0; i<numOfBlocks*numOfBlocks; i++){
+    for(let i=0; i<numOfBlocksMax*numOfBlocksMax; i++){
         block.reverse[i].black();
     }
 }
