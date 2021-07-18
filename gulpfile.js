@@ -16,7 +16,7 @@ const server = () => browserSync.init({
 const browserReload = () => browserSync.reload();
 
 //jsファイルを監視
-const watchReload = () => watch("docs/js/*.js", browserReload);
+const watchReload = () => watch("js/*.js", browserReload);
 
 //自動リロードサーバー
 const watchReloadServer = () => {
