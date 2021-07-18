@@ -1,0 +1,19 @@
+{
+  "name": "Puzzle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.4",
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "gulp-watch": "^5.0.1"
+  }
+}
