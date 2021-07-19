@@ -7,7 +7,7 @@ const browserSync = require('browser-sync');
 //ローカルサーバーを起動
 const server = () => browserSync.init({
     server: {
-        baseDir: "docs",
+        // baseDir: "docs",
         index: "index.html"
     }
 });

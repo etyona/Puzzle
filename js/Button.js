@@ -6,7 +6,8 @@ class Button {
     this.pressed = false;
     this.p = false;
     this.args ;
-    this.color = [252,111,3];
+    // this.color = [252,111,3];
+    this.color = themeColor.button;
     this.textSize = 30;
     this.sizeX = 160;
     this.sizeY = 60;
@@ -30,20 +31,17 @@ class Button {
       this.pressed = false;
     }
     
-    strokeWeight(2);
-    strokeCap(PROJECT);
-    fill(this.color ,250);
-    stroke(100);
+    strokeWeight(8);
+    strokeCap(ROUND);
+    fill(themeColor.button ,250);
+    stroke(themeColor.button);
     
-    //カーソルを合わせると枠線を消す
+    //ボタンの上でクリックし離した場合のみ動作
     if(rectMouseXY(this.x,this.y,this.sizeX,this.sizeY)){
       noStroke();
       if(mouseIsPressed && this.p){
         this.pressed = true;
       }
-      if(mouseIsPressed && this.pressed ){
-        fill(color[1]-20,color[2]-20,color[3]-20);
-      } 
       if(!mouseIsPressed){
         this.p = true;
       }      
@@ -52,16 +50,18 @@ class Button {
     }
      
     this.buttonText();
+    strokeWeight(0);
   }
 
   buttonText() {
     rect(this.x, this.y , this.sizeX, this.sizeY);
     textAlign(CENTER);
     textSize(this.textSize);
-    fill(255);
+    fill(themeColor.buttonText);
     noStroke();
     text(this.args, this.x+this.sizeX/2, this.y+this.sizeY/2+10);
   }
+  
   
 }
 

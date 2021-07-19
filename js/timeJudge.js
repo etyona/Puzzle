@@ -28,21 +28,23 @@ function getBestTime(gameMode){
 }
 
 function drawTime(x,y){
-    fill(255);
+    fill(themeColor.text);
     textAlign(CENTER);
-    text("TIME:" + outTime() +"s", x, y,35,255);
+    noStroke();
+    text("TIME:" + outTime() +"s", x, y,35);
 }
 
 function drawBestTime(gameMode, x, y){
     if(gameMode == "reversePuzzle") i = 0;
     if(gameMode == "slidePuzzle") i = 1;
     
-    fill(255);
     textAlign(LEFT);
+    fill(themeColor.text);
+    strokeWeight(0);
     if(bestTime[i][numOfBlocks-3] == 1000){
-      text("BEST:NotSolve", x, y,30,255); 
+      text("BEST:NotSolve", x, y,30); 
     } else{
-      text("BEST:" + bestTime[i][numOfBlocks-3].toFixed(2)+"s", x, y,30,255); 
+      text("BEST:" + bestTime[i][numOfBlocks-3].toFixed(2)+"s", x, y,30); 
     } 
 
     textAlign(CENTER);

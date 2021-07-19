@@ -1,38 +1,20 @@
 //リバースパズル
 
 let solveReversePuzzle = false;
+let playing = false;
 
 //パズルブロックの配置　左上座標
 const blockX = 250;
 const blockY = 150;
 
-//プレイ画面
-function reversePuzzlePlay() {
-    if(solveReversePuzzle) {
-        solveReversePuzzle = false;
-        reverseBlockRandom();
-        console.log("reset");
-    }
-
-    button.hub.draw("HUB", 820, 660 );
-    button.reversePuzzleReady.draw("Restart", 820, 560);
-
-    setReverseBlock();
-    drawReverseBlock();
-
-    judgeReverseBlock();
-
-    drawTime(470,90);
-    drawBestTime(0,750,100);
-}
 
 //準備画面
 function reversePuzzleReady(){
     solveReversePuzzle = true;
-    reverseBlockBlack();
+    reverseBlockWhite();
 
     //ボタン
-    button.hub.draw("HUB", 820, 660 );
+    button.hub.draw("Menu", 820, 660 );
     button.reversePuzzlePlay.draw("Start", 820,560 );
     button.numOfBlocks.draw(numOfBlocks+"×"+numOfBlocks, 820, 460);
 
@@ -42,11 +24,33 @@ function reversePuzzleReady(){
     drawBestTime("reversePuzzle", 750,100);
 
     textAlign(CENTER);
+    strokeWeight(0);
     text("READY",475,100,35,255); 
     text("FILL ALL BLOCK",470,700); 
 
     setStartTime();
 }
+
+//プレイ画面
+function reversePuzzlePlay() {
+    //ゲーム開始時にブロックをリセット
+    if(solveReversePuzzle) {
+        solveReversePuzzle = false;
+        reverseBlockRandom("reverse");
+        console.log("reset");
+    }
+
+    button.hub.draw("HUB", 820, 660 );
+    button.reversePuzzleReady.draw("Restart", 820, 560);
+
+    drawReverseBlock();
+
+    judgeReverseBlock();
+
+    drawTime(470,90);
+    drawBestTime(0,750,100);
+}
+
 
 //ブロック数に合わせて配置を更新
 function setReverseBlock(){
@@ -88,6 +92,12 @@ function judgeReverseBlock(){
 function reverseBlockBlack(){
     for(let i=0; i<numOfBlocksMax*numOfBlocksMax; i++){
         block.reverse[i].black();
+    }
+}
+//白
+function reverseBlockWhite(){
+    for(let i=0; i<numOfBlocksMax*numOfBlocksMax; i++){
+        block.reverse[i].white();
     }
 }
 
