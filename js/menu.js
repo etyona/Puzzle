@@ -14,7 +14,7 @@ y = 7*sin(frameCount/25);
 textAlign(CENTER);
 textSize(60);
 fill(0);
-text("Puzzle", 519, 190+y);
+text("Acuty", 519, 190+y);
 fill(255);
-text("Puzzle", 514, 190+y);
+text("Acuty", 514, 190+y);
 }

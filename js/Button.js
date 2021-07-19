@@ -59,6 +59,7 @@ class Button {
     textAlign(CENTER);
     textSize(this.textSize);
     fill(255);
+    noStroke();
     text(this.args, this.x+this.sizeX/2, this.y+this.sizeY/2+10);
   }
   
