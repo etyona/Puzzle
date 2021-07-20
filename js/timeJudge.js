@@ -2,6 +2,7 @@
 
 let startTime;
 let currentTime;
+let recordTime;
 
 let bestTime = [
     [1000,1000,1000,1000],
@@ -23,8 +24,9 @@ function getBestTime(gameMode){
     if(gameMode == "slidePuzzle") i = 1;
 
     if(bestTime[i][numOfBlocks-3] > currentTime){
-        bestTime[i][numOfBlocks-3] = currentTime;
+        bestTime[i][numOfBlocks-3] = currentTime.toFixed(2);
     }
+    recordTime = currentTime.toFixed(2);
 }
 
 function drawTime(x,y){
@@ -44,8 +46,16 @@ function drawBestTime(gameMode, x, y){
     if(bestTime[i][numOfBlocks-3] == 1000){
       text("BEST:NotSolve", x, y,30); 
     } else{
-      text("BEST:" + bestTime[i][numOfBlocks-3].toFixed(2)+"s", x, y,30); 
+      text("BEST:" + bestTime[i][numOfBlocks-3]+"s", x, y,30); 
     } 
 
     textAlign(CENTER);
 }
+
+function outBestTime(gameMode){
+    if(gameMode == "reversePuzzle") i = 0;
+    if(gameMode == "slidePuzzle") i = 1;
+
+    return bestTime[i][numOfBlocks-3];
+}
+

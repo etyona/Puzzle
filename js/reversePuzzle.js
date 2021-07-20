@@ -37,7 +37,6 @@ function reversePuzzlePlay() {
     if(solveReversePuzzle) {
         solveReversePuzzle = false;
         reverseBlockRandom("reverse");
-        console.log("reset");
     }
 
     button.hub.draw("HUB", 820, 660 );
@@ -45,7 +44,7 @@ function reversePuzzlePlay() {
 
     drawReverseBlock();
 
-    judgeReverseBlock();
+    judgeReversePuzzle();
 
     drawTime(470,90);
     drawBestTime(0,750,100);
@@ -75,7 +74,7 @@ function drawReverseBlock(){
 }
 
 //解　判定
-function judgeReverseBlock(){
+function judgeReversePuzzle(){
     let count=0;
     for(let i=0; i<numOfBlocks*numOfBlocks; i++){
         if(block.reverse[i].color == "black") count++; 
@@ -83,7 +82,7 @@ function judgeReverseBlock(){
 
     if(count == numOfBlocks*numOfBlocks) {
         solveReversePuzzle = true;
-        scene = "reversePuzzleReady";
+        scene = "resultReverse";
         getBestTime("reversePuzzle");
     }
 }

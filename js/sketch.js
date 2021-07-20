@@ -52,6 +52,10 @@ for (let index = 0; index < numOfBlocksMax*numOfBlocksMax; index++) {
 //シーン変数
 let scene = "menu";
 
+//画像
+let picture = {};
+
+
 
 
 
@@ -65,7 +69,7 @@ function setup() {
 
   createCanvas(1024, 768);
   frameRate(60);
-
+  picture.nemuku = loadImage("../pic/nemuku.jpg");
   changeThemeColor("white");
 }
 
@@ -98,8 +102,41 @@ function draw() {
     case "slidePuzzlePlay":
       slidePuzzlePlay();
       break;
+
+    case "resultReverse":
+      result("reverse");
+      break;
+
+    case "resultSlide":
+      result("slide");
+      break;
   }
-  
+  console.log(mouseX,mouseY);
+}
+
+//リザルト画面
+function result(type){ 
+  imageMode(CENTER);
+  image(picture.nemuku,512,400);
+
+  stroke(0);
+  strokeWeight(4);
+  fill(255);
+  textSize(70);
+  text("CLEAR",512,120);
+
+  strokeWeight(2);
+  textSize(30);
+  if(recordTime == outBestTime(type+"Puzzle")){
+    text("TIME:"+recordTime+ "  BestRecord" ,512,600);
+  } else {
+    text("TIME:"+recordTime+"    BEST:"+outBestTime(type+"Puzzle"),512,600);
+  }
+
+  let bestTime = outBestTime(type+"Puzzle");
+
+  button.hub.draw("Menu", 620, 660 );
+  button[type+"PuzzleReady"].draw("Play Again",244,660);
 }
 
 //テーマカラー設定

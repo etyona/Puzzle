@@ -29,6 +29,8 @@ function slidePuzzleReady() {
 
     text("READY",475,100, 35 ,255); 
     text("SORT ALL BLOCK",470,700); 
+
+    setStartTime();
 }
 
 //プレイ画面
@@ -37,16 +39,21 @@ function slidePuzzlePlay(){
     if(solveSlidePuzzle) {
         solveSlidePuzzle = false;
         slideBlockRandom();
+
     }
 
     slidePuzzleBack();
     drawSlideBlock();
+
+    //解
+    judgeSlidePuzzle();
 
     //ボタン
     button.hub.draw("Menu", 820, 660 );
     button.slidePuzzleReady.draw("Restart",820,560);
 
     //ベストタイムを表示
+    drawTime(470,90);
     drawBestTime("slidePuzzle", 750,100);
 
 }
@@ -75,6 +82,26 @@ function setSlideBlock(){
     }
     ghostBlock = [numOfBlocks-1, numOfBlocks-1];
 }
+
+//解
+function judgeSlidePuzzle(){
+    let count = 0;
+    for(let i = 0; i < numOfBlocks*numOfBlocks-1; i++){
+      if(block.slide[i].place[0] + numOfBlocks*block.slide[i].place[1] == i){
+        count++;
+      }
+    }
+    if(count == numOfBlocks*numOfBlocks-1){
+      solveSlidePuzzle = true;
+      getBestTime("slidePuzzle");
+
+      scene = "resultSlide";
+    }
+}
+
+
+    
+
 
 //ブロックを描画(一つ抜く)
 function drawSlideBlock(){
