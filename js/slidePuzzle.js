@@ -21,7 +21,7 @@ function slidePuzzleReady() {
 
     //ボタン
     button.hub.draw("Menu", 820, 660 );
-    button.slidePuzzlePlay.draw("Slide", 820,560 );
+    button.slidePuzzlePlay.draw("Start", 820,560 );
     button.numOfBlocks.draw(numOfBlocks+"×"+numOfBlocks, 820, 460);
 
     //ベストタイムを表示

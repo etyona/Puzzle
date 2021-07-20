@@ -3,6 +3,8 @@ function menu() {
 
     button.reversePuzzleReady.draw("Reverse", 434,360);
     button.slidePuzzleReady.draw("Slide", 434, 460);
+
+    button.changeColor.draw(" ",20,20);
 }
 
 

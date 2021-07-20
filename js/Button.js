@@ -17,11 +17,18 @@ class Button {
   clickedButton(){
   }
   
+  //テーマ更新
+  changeColor(){
+    this.color = themeColor.button;
+  }
+
   //本体
   draw(str, a, b){
     this.args = str;
     this.x = a;
     this.y = b;
+
+    this.changeColor();
         
     if(!mouseIsPressed && this.pressed && rectMouseXY(this.x,this.y,this.sizeX,this.sizeY)){
       this.clickedButton();
@@ -33,8 +40,8 @@ class Button {
     
     strokeWeight(8);
     strokeCap(ROUND);
-    fill(themeColor.button ,250);
-    stroke(themeColor.button);
+    fill(this.color ,250);
+    stroke(this.color);
     
     //ボタンの上でクリックし離した場合のみ動作
     if(rectMouseXY(this.x,this.y,this.sizeX,this.sizeY)){
@@ -83,5 +90,50 @@ class changeNumOfBlockButton extends Button {
     }
     numOfBlocks++;
   }
-  
 }
+
+class changeColor extends Button {
+  constructor(){
+    super();
+    this.textSize = 0;
+    this.sizeX = 50;
+    this.sizeY = 50;
+    this.color = themeColor.text;
+  }
+
+  clickedButton(){
+    if(themeColor == color.black){
+      changeThemeColor("white");
+    } else {
+      changeThemeColor("black");
+    }
+  }
+
+  changeColor(){
+    this.color = themeColor.text;
+  }
+}
+
+class changeColorButton extends Button {
+
+  constructor(){
+    super();
+    this.textSize = 0;
+    this.sizeX = 50;
+    this.sizeY = 50;
+    this.color = themeColor.text;
+  }
+
+  clickedButton(){
+    if(themeColor == color.black){
+      changeThemeColor("white");
+    } else {
+      changeThemeColor("black");
+    }
+  }
+
+  changeColor(){
+    this.color = themeColor.text;
+  }
+}
+

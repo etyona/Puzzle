@@ -13,14 +13,14 @@ color.black = {
 
 color.white = {
   back:255,
-  button:230, 
-  buttonText:0,
+  button:170, 
+  buttonText:255,
   text:0,
   block:250,
   blockText:20 
 };
 
-let themeColor = color.black;
+let themeColor = color.white;
 
 //ボタン定義
 const button = {};
@@ -30,6 +30,7 @@ button.reversePuzzlePlay = new sceneButton("reversePuzzlePlay");
 button.slidePuzzleReady = new sceneButton("slidePuzzleReady");
 button.slidePuzzlePlay = new sceneButton("slidePuzzlePlay");
 button.numOfBlocks = new changeNumOfBlockButton();
+button.changeColor = new changeColor();
 
 
 //パズルのブロック数 一辺
@@ -70,7 +71,6 @@ function setup() {
   createCanvas(1024, 768);
   frameRate(60);
   picture.nemuku = loadImage("../pic/nemuku.jpg");
-  changeThemeColor("white");
 }
 
 
@@ -111,7 +111,7 @@ function draw() {
       result("slide");
       break;
   }
-  console.log(mouseX,mouseY);
+  // console.log(mouseX,mouseY);
 }
 
 //リザルト画面
