@@ -159,7 +159,7 @@ class SlideBlock extends Block {
     }
 
     clicked(){
-        this.slide();
+        if(!solveSlidePuzzle) this.slide();
     }
 
     slide(){
