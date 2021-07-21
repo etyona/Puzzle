@@ -2,10 +2,17 @@
 
 let solveReversePuzzle = false;
 let playing = false;
+let status = "Ready";
 
 //パズルブロックの配置　左上座標
 const blockX = 250;
 const blockY = 150;
+
+function reversePuzzle(){
+    if(status == "Ready")    reversePuzzleReady();
+    if(status == "Play")     reversePuzzlePlay();
+    if(status == "Result")   result("reverse");     
+}
 
 
 //準備画面
@@ -15,7 +22,7 @@ function reversePuzzleReady(){
 
     //ボタン
     button.hub.draw("Menu", 820, 660 );
-    button.reversePuzzlePlay.draw("Start", 820,560 );
+    button.play.draw("Start", 820,560 );
     button.numOfBlocks.draw(numOfBlocks+"×"+numOfBlocks, 820, 460);
 
     setReverseBlock();
@@ -37,10 +44,12 @@ function reversePuzzlePlay() {
     if(solveReversePuzzle) {
         solveReversePuzzle = false;
         reverseBlockRandom("reverse");
+
+        pic = int(random(1,picNum+1));
     }
 
     button.hub.draw("HUB", 820, 660 );
-    button.reversePuzzleReady.draw("Restart", 820, 560);
+    button.ready.draw("Restart", 820, 560);
 
     drawReverseBlock();
 
@@ -82,7 +91,7 @@ function judgeReversePuzzle(){
 
     if(count == numOfBlocks*numOfBlocks) {
         solveReversePuzzle = true;
-        scene = "resultReverse";
+        status = "Result";
         getBestTime("reversePuzzle");
     }
 }

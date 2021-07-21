@@ -13,7 +13,7 @@ color.black = {
 
 color.white = {
   back:255,
-  button:170, 
+  button:85, 
   buttonText:255,
   text:0,
   block:250,
@@ -24,11 +24,11 @@ let themeColor = color.white;
 
 //ボタン定義
 const button = {};
-button.hub = new sceneButton("menu");
-button.reversePuzzleReady = new sceneButton("reversePuzzleReady");
-button.reversePuzzlePlay = new sceneButton("reversePuzzlePlay");
-button.slidePuzzleReady = new sceneButton("slidePuzzleReady");
-button.slidePuzzlePlay = new sceneButton("slidePuzzlePlay");
+button.hub         = new sceneButton("menu");
+button.reversePuzzle = new sceneButton("ReversePuzzle");
+button.slidePuzzle = new sceneButton("SlidePuzzle");
+button.ready       = new statusButton("Ready");
+button.play        = new statusButton("Play");
 button.numOfBlocks = new changeNumOfBlockButton();
 button.changeColor = new changeColor();
 
@@ -71,6 +71,10 @@ function setup() {
   createCanvas(1024, 768);
   frameRate(60);
   picture.nemuku = loadImage("../pic/nemuku.jpg");
+  picture.neru = loadImage("../pic/neru.jpg");
+  picture.bero = loadImage("../pic/bero.jpg");
+  picture.nikukyu = loadImage("../pic/nikukyu.jpg");
+
 }
 
 
@@ -87,56 +91,69 @@ function draw() {
       menu();
       break;
 
-    case "reversePuzzleReady":
-      reversePuzzleReady();
+    case "ReversePuzzle":
+      reversePuzzle();
       break;
-  
-    case "reversePuzzlePlay":
-      reversePuzzlePlay();
-      break;
-
-    case "slidePuzzleReady":
-      slidePuzzleReady();
-      break;
-
-    case "slidePuzzlePlay":
-      slidePuzzlePlay();
-      break;
-
-    case "resultReverse":
-      result("reverse");
-      break;
-
-    case "resultSlide":
-      result("slide");
+    
+    case "SlidePuzzle":
+      slidePuzzle();
       break;
   }
+  // console.log();
   // console.log(mouseX,mouseY);
 }
 
 //リザルト画面
 function result(type){ 
-  imageMode(CENTER);
-  image(picture.nemuku,512,400);
+
+  displayCat();
 
   stroke(0);
   strokeWeight(4);
   fill(255);
-  textSize(70);
-  text("CLEAR",512,120);
+  textSize(120);
+  text("CLEAR",512,160);
 
   strokeWeight(2);
-  textSize(30);
+  textSize(50);
   if(recordTime == outBestTime(type+"Puzzle")){
     text("TIME:"+recordTime+ "  BestRecord" ,512,600);
   } else {
-    text("TIME:"+recordTime+"    BEST:"+outBestTime(type+"Puzzle"),512,600);
+    text("TIME:"+recordTime+"     BEST:"+outBestTime(type+"Puzzle"),512,600);
   }
 
   let bestTime = outBestTime(type+"Puzzle");
 
   button.hub.draw("Menu", 620, 660 );
-  button[type+"PuzzleReady"].draw("Play Again",244,660);
+  button.ready.draw("Play Again",244,660);
+}
+
+
+let pic;
+let picNum = 4;
+
+function displayCat(){
+  imageMode(CENTER);
+
+
+  switch (pic) {
+    case 1:
+      image(picture.nemuku,512,400);
+      break;
+  
+    case 2:
+      image(picture.bero,512,400);
+      break;
+
+    case 3:
+      image(picture.neru,512,400);
+      break;
+    
+    case 4:
+      image(picture.nikukyu,512,400);
+      break;
+  }
+
 }
 
 //テーマカラー設定

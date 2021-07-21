@@ -1,8 +1,9 @@
 function menu() {
+    status = "Ready";
     logo();
 
-    button.reversePuzzleReady.draw("Reverse", 434,360);
-    button.slidePuzzleReady.draw("Slide", 434, 460);
+    button.reversePuzzle.draw("Reverse", 434,360);
+    button.slidePuzzle.draw("Slide", 434, 460);
 
     button.changeColor.draw(" ",20,20);
 }

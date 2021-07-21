@@ -75,11 +75,22 @@ class Button {
 class sceneButton extends Button {
   constructor(change){
     super();
-    this.changeScene = change;
+    this.change = change;
   }
 
   clickedButton(){
-    scene = this.changeScene;
+    scene = this.change;
+  }
+}
+
+class statusButton extends Button {
+  constructor(change){
+    super();
+    this.change = change;
+  }
+
+  clickedButton(){
+    status = this.change;
   }
 }
 

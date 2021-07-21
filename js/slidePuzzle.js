@@ -8,6 +8,13 @@ let backLength = 450;
 //ゴーストブロック座標
 let ghostBlock = [0,0];
 
+//メイン
+function slidePuzzle(){
+    if(status == "Ready")    slidePuzzleReady();
+    if(status == "Play")     slidePuzzlePlay();
+    if(status == "Result")   result("slide");     
+}
+
 //スライドパズル準備
 function slidePuzzleReady() {
     solveSlidePuzzle = true;
@@ -21,7 +28,7 @@ function slidePuzzleReady() {
 
     //ボタン
     button.hub.draw("Menu", 820, 660 );
-    button.slidePuzzlePlay.draw("Start", 820,560 );
+    button.play.draw("Start", 820,560 );
     button.numOfBlocks.draw(numOfBlocks+"×"+numOfBlocks, 820, 460);
 
     //ベストタイムを表示
@@ -39,7 +46,7 @@ function slidePuzzlePlay(){
     if(solveSlidePuzzle) {
         solveSlidePuzzle = false;
         slideBlockRandom();
-
+        pic = int(random(1,picNum+1));
     }
 
     slidePuzzleBack();
@@ -50,7 +57,7 @@ function slidePuzzlePlay(){
 
     //ボタン
     button.hub.draw("Menu", 820, 660 );
-    button.slidePuzzleReady.draw("Restart",820,560);
+    button.ready.draw("Restart",820,560);
 
     //ベストタイムを表示
     drawTime(470,90);
@@ -95,7 +102,7 @@ function judgeSlidePuzzle(){
       solveSlidePuzzle = true;
       getBestTime("slidePuzzle");
 
-      scene = "resultSlide";
+      status = "Result";
     }
 }
 
