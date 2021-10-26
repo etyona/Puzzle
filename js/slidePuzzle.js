@@ -10,9 +10,9 @@ let ghostBlock = [0,0];
 
 //メイン
 function slidePuzzle(){
-    if(status == "Ready")    slidePuzzleReady();
-    if(status == "Play")     slidePuzzlePlay();
-    if(status == "Result")   result("slide");     
+    if(stat == "Ready")    slidePuzzleReady();
+    if(stat == "Play")     slidePuzzlePlay();
+    if(stat == "Result")   result("slide");     
 }
 
 //スライドパズル準備
@@ -102,7 +102,7 @@ function judgeSlidePuzzle(){
       solveSlidePuzzle = true;
       getBestTime("slidePuzzle");
 
-      status = "Result";
+      stat = "Result";
     }
 }
 

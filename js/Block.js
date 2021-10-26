@@ -103,7 +103,7 @@ class ReverseBlock extends Block {
     }
 
     //指定したブロックを反転
-    revrse(x,y){
+    reverseS(x,y){
         block.reverse[this.place[0]+x + (this.place[1]+y)*numOfBlocks].reverse();
     }
 
@@ -114,21 +114,21 @@ class ReverseBlock extends Block {
             //本体
             this.reverse();
             //左
-            if(this.place[0] != 0) this.revrse(-1,0);
+            if(this.place[0] != 0) this.reverseS(-1,0);
             //上
-            if(this.place[1] != 0) this.revrse(0,-1);
+            if(this.place[1] != 0) this.reverseS(0,-1);
             //右
-            if(this.place[0] != numOfBlocks-1) this.revrse(1,0);
+            if(this.place[0] != numOfBlocks-1) this.reverseS(1,0);
             //下
-            if(this.place[1] != numOfBlocks-1) this.revrse(0,1);
+            if(this.place[1] != numOfBlocks-1) this.reverseS(0,1);
             //左上
-            if(this.place[0] != 0 && this.place[1] != 0) this.revrse(-1,-1);
+            if(this.place[0] != 0 && this.place[1] != 0) this.reverseS(-1,-1);
             //右上
-            if(this.place[0] != numOfBlocks-1 && this.place[1] != 0) this.revrse(1,-1);
+            if(this.place[0] != numOfBlocks-1 && this.place[1] != 0) this.reverseS(1,-1);
             //左下
-            if(this.place[0] != 0 && this.place[1] != numOfBlocks-1) this.revrse(-1,1);     
+            if(this.place[0] != 0 && this.place[1] != numOfBlocks-1) this.reverseS(-1,1);     
             //右下
-            if(this.place[0] != numOfBlocks-1 && this.place[1] != numOfBlocks-1) this.revrse(1,1);     
+            if(this.place[0] != numOfBlocks-1 && this.place[1] != numOfBlocks-1) this.reverseS(1,1);     
         }
     }
 }

@@ -84,13 +84,13 @@ class sceneButton extends Button {
 }
 
 class statusButton extends Button {
-  constructor(change){
+  constructor(c){
     super();
-    this.change = change;
+    this.change = c;
   }
 
   clickedButton(){
-    status = this.change;
+    stat = this.change;
   }
 }
 
@@ -100,28 +100,6 @@ class changeNumOfBlockButton extends Button {
       numOfBlocks = 2;
     }
     numOfBlocks++;
-  }
-}
-
-class changeColor extends Button {
-  constructor(){
-    super();
-    this.textSize = 0;
-    this.sizeX = 50;
-    this.sizeY = 50;
-    this.color = themeColor.text;
-  }
-
-  clickedButton(){
-    if(themeColor == color.black){
-      changeThemeColor("white");
-    } else {
-      changeThemeColor("black");
-    }
-  }
-
-  changeColor(){
-    this.color = themeColor.text;
   }
 }
 

@@ -2,16 +2,16 @@
 
 let solveReversePuzzle = false;
 let playing = false;
-let status = "Ready";
+let stat = "Ready";
 
 //パズルブロックの配置　左上座標
 const blockX = 250;
 const blockY = 150;
 
 function reversePuzzle(){
-    if(status == "Ready")    reversePuzzleReady();
-    if(status == "Play")     reversePuzzlePlay();
-    if(status == "Result")   result("reverse");     
+    if(stat == "Ready")    reversePuzzleReady();
+    if(stat == "Play")     reversePuzzlePlay();
+    if(stat == "Result")   result("reverse");     
 }
 
 
@@ -91,7 +91,7 @@ function judgeReversePuzzle(){
 
     if(count == numOfBlocks*numOfBlocks) {
         solveReversePuzzle = true;
-        status = "Result";
+        stat = "Result";
         getBestTime("reversePuzzle");
     }
 }

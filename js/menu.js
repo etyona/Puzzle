@@ -1,5 +1,5 @@
 function menu() {
-    status = "Ready";
+    stat = "Ready";
     logo();
 
     button.reversePuzzle.draw("Reverse", 434,360);
@@ -17,8 +17,6 @@ y = 7*sin(frameCount/25);
 
 textAlign(CENTER);
 textSize(60);
-// fill(115);
-// text("Puzzle", 519, 190+y);
 fill(themeColor.text);
 text("Puzzle", 514, 190+y);
 }

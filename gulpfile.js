@@ -26,3 +26,5 @@ const watchReloadServer = () => {
 
 //デフォルトタスク
 exports.default = watchReloadServer;
+
+//実行⇒　npx gulp

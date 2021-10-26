@@ -1,7 +1,10 @@
+//メイン
+
 //テーマカラー
 // let themeColor.back =[83,125,194];
 let color = {};
 
+//黒基調
 color.black = {
   back:0,
   button:85, 
@@ -11,6 +14,7 @@ color.black = {
   blockText:255 
 };
 
+//白基調
 color.white = {
   back:255,
   button:85, 
@@ -20,6 +24,7 @@ color.white = {
   blockText:20 
 };
 
+//デフォルトは白
 let themeColor = color.white;
 
 //ボタン定義
@@ -30,7 +35,7 @@ button.slidePuzzle = new sceneButton("SlidePuzzle");
 button.ready       = new statusButton("Ready");
 button.play        = new statusButton("Play");
 button.numOfBlocks = new changeNumOfBlockButton();
-button.changeColor = new changeColor();
+button.changeColor = new changeColorButton();
 
 
 //パズルのブロック数 一辺
@@ -70,6 +75,8 @@ function setup() {
 
   createCanvas(1024, 768);
   frameRate(60);
+  
+  //画像読み込み
   picture.nemuku = loadImage("../pic/nemuku.jpg");
   picture.neru = loadImage("../pic/neru.jpg");
   picture.bero = loadImage("../pic/bero.jpg");
@@ -99,21 +106,20 @@ function draw() {
       slidePuzzle();
       break;
   }
-  // console.log();
-  // console.log(mouseX,mouseY);
 }
 
 //リザルト画面
 function result(type){ 
 
+  //リザルト画像
   displayCat();
 
+  //リザルトテキスト
   stroke(0);
   strokeWeight(4);
   fill(255);
   textSize(120);
   text("CLEAR",512,160);
-
   strokeWeight(2);
   textSize(50);
   if(recordTime == outBestTime(type+"Puzzle")){
@@ -134,7 +140,6 @@ let picNum = 4;
 
 function displayCat(){
   imageMode(CENTER);
-
 
   switch (pic) {
     case 1:
@@ -161,7 +166,7 @@ function changeThemeColor(c){
   themeColor = color[c];
 }
 
-//マウスが四角の中にあるか判定
+//マウスが四角の内側にあるか判定
 function rectMouseXY( x,  y,  sizeX,  sizeY){
   if(mouseX >= x && mouseX <= x+sizeX && mouseY <= y+sizeY && mouseY >= y ){
     return true;
