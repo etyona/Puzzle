@@ -1,5 +1,7 @@
 //メイン
 
+let canvasPlace = document.getElementById('canvasP');
+
 //テーマカラー
 // let themeColor.back =[83,125,194];
 let color = {};
@@ -61,19 +63,15 @@ let scene = "menu";
 //画像
 let picture = {};
 
-
-
-
-
-
-
 //セットアップ
 function setup() {
   //キャンバスの位置を変更
  // const canvas = createCanvas(300, 300);
 //  canvas.parent('canvas');
 
-  createCanvas(1024, 768);
+  let canvas = createCanvas(1024, 768);
+  canvas.parent(canvasPlace);
+
   frameRate(60);
   
   //画像読み込み
