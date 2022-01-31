@@ -2,7 +2,7 @@
 <html lang='jp'>
 
 <head>
-  <meta charset='utf-8'>
+  <meta charset='utf-8' name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Puzzle</title>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script> -->
   <script src="lib/p5.min.js" defer></script>
@@ -13,13 +13,18 @@
   <script src='js/slidePuzzle.js' defer></script>
   <script src='js/Block.js' defer></script>
   <script src='js/menu.js' defer></script>
+  <script src='js/result.js' defer></script>
   <script src='js/sketch.js' defer></script>
 </head>
 
 <body>
-  <div id = "canvasP"></div>
-  <font size = "5"> Source Code ⇒</font>
-  <a href="https://github.com/etyona/Puzzle"> <font size = "5"> GitHub </font></a>
+  <div class="canvas_wrapper">
+    <div id = "canvasP"></div>
+    <h2>
+      Source Code ⇒
+      <a href="https://github.com/etyona/Puzzle"> GitHub </a>
+    </h2>
+  </div>
 </body>
 
 </html>

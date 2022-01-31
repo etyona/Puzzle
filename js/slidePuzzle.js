@@ -1,5 +1,4 @@
 //スライドパズル
-
 let solveSlidePuzzle = false;
 
 //背景枠の一辺
@@ -62,7 +61,8 @@ function slidePuzzlePlay(){
     //ベストタイムを表示
     drawTime(470,90);
     drawBestTime("slidePuzzle", 750,100);
-
+    
+    text("SORT ALL BLOCK",470,700); 
 }
 
 //背景

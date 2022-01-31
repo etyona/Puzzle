@@ -20,3 +20,8 @@ textSize(60);
 fill(themeColor.text);
 text("Puzzle", 514, 190+y);
 }
+
+//テーマカラー設定
+function changeThemeColor(c){
+    themeColor = color[c];
+}

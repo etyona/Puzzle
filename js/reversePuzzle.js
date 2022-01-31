@@ -55,12 +55,14 @@ function reversePuzzlePlay() {
 
     judgeReversePuzzle();
 
+    //タイムを表示
     drawTime(470,90);
     drawBestTime(0,750,100);
+    text("FILL ALL BLOCK",470,700); 
 }
 
 
-//ブロック数に合わせて配置を更新
+//ブロック数に合わせてブロック配置を更新
 function setReverseBlock(){
     let l=0;
     let size = parseInt(450/numOfBlocks);

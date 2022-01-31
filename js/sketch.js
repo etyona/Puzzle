@@ -1,9 +1,9 @@
 //メイン
 
+//指定したタグにキャンバスを配置 
 let canvasPlace = document.getElementById('canvasP');
 
 //テーマカラー
-// let themeColor.back =[83,125,194];
 let color = {};
 
 //黒基調
@@ -29,7 +29,7 @@ color.white = {
 //デフォルトは白
 let themeColor = color.white;
 
-//ボタン定義
+//ボタン　インスタンス生成
 const button = {};
 button.hub         = new sceneButton("menu");
 button.reversePuzzle = new sceneButton("ReversePuzzle");
@@ -39,12 +39,11 @@ button.play        = new statusButton("Play");
 button.numOfBlocks = new changeNumOfBlockButton();
 button.changeColor = new changeColorButton();
 
-
 //パズルのブロック数 一辺
 let numOfBlocks = 3;
 const numOfBlocksMax = 6;
 
-//パズルブロック インスタンス
+//パズルブロック インスタンス生成
 const block = {};
 
 block.reverse = [];
@@ -60,15 +59,12 @@ for (let index = 0; index < numOfBlocksMax*numOfBlocksMax; index++) {
 //シーン変数
 let scene = "menu";
 
-//画像
+//画像変数
 let picture = {};
 
 //セットアップ
 function setup() {
-  //キャンバスの位置を変更
- // const canvas = createCanvas(300, 300);
-//  canvas.parent('canvas');
-
+  //html出力時のキャンバスの位置を変更
   let canvas = createCanvas(1024, 768);
   canvas.parent(canvasPlace);
 
@@ -82,15 +78,13 @@ function setup() {
 
 }
 
-
-
 //メインループ
 function draw() {
 
   //背景を更新
   background(themeColor.back);
 
-  //statusのシーンによって処理を切り替え
+  //sceneの値によって処理を切り替え
   switch (scene) {
     case "menu":
       menu();
@@ -104,64 +98,6 @@ function draw() {
       slidePuzzle();
       break;
   }
-}
-
-//リザルト画面
-function result(type){ 
-
-  //リザルト画像
-  displayCat();
-
-  //リザルトテキスト
-  stroke(0);
-  strokeWeight(4);
-  fill(255);
-  textSize(120);
-  text("CLEAR",512,160);
-  strokeWeight(2);
-  textSize(50);
-  if(recordTime == outBestTime(type+"Puzzle")){
-    text("TIME:"+recordTime+ "  BestRecord" ,512,600);
-  } else {
-    text("TIME:"+recordTime+"     BEST:"+outBestTime(type+"Puzzle"),512,600);
-  }
-
-  let bestTime = outBestTime(type+"Puzzle");
-
-  button.hub.draw("Menu", 620, 660 );
-  button.ready.draw("Play Again",244,660);
-}
-
-
-let pic;
-let picNum = 4;
-
-function displayCat(){
-  imageMode(CENTER);
-
-  switch (pic) {
-    case 1:
-      image(picture.nemuku,512,400);
-      break;
-  
-    case 2:
-      image(picture.bero,512,400);
-      break;
-
-    case 3:
-      image(picture.neru,512,400);
-      break;
-    
-    case 4:
-      image(picture.nikukyu,512,400);
-      break;
-  }
-
-}
-
-//テーマカラー設定
-function changeThemeColor(c){
-  themeColor = color[c];
 }
 
 //マウスが四角の内側にあるか判定
@@ -185,7 +121,3 @@ function text(str, x, y, size) {
   text(str,x,y);
 }
 
-function keyPressed(){
-  if(key == "w") changeThemeColor("white");
-  if(key == "b") changeThemeColor("black");
-}
