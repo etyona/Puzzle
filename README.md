@@ -11,7 +11,7 @@ link https://prepe.sakura.ne.jp
  
 # Requirement
  
-p5.js単体で実行可能です。
+p5.jsのみで実行可能です。
 
-制作時は勉強のためgulpを使用しました。
+制作時はgulpを使用しました。
  
