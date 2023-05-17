@@ -7,7 +7,7 @@ p5.jsを使ってブロックの色を反転させるパズル、スライドに
 スライドパズル：
 クリックしたブロックが空きマスへスライドします。左上から昇順に数字を並び替えるとクリア。
 
-link https://prepe.sakura.ne.jp
+link https://etyona.github.io/Puzzle/
  
 # Requirement
  
